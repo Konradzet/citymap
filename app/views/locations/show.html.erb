@@ -9,7 +9,11 @@
   <strong>Address:</strong>
   <%= @location.address %>
 </p>
-
+<p>
+<% for location in @location.nearbys(50) %>
+  <li><%= link_to location.address, location %> (<%= location.distance.round(2) %>) kilometrow</li>
+<% end %>
+</p>
 <p>
   <strong>Latitude:</strong>
   <%= @location.latitude %>
